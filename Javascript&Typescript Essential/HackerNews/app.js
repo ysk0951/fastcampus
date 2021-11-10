@@ -10,10 +10,6 @@ function getData(url) {
     ajax.send();
     return JSON.parse(ajax.response);
 }
-
-
-const newsFeeds = getData(NEWS_URL)
-const ul = document.createElement('ul');
 function newsDetail() {
     const id = location.hash.substr(1);
     const newsContent = getData(CONTECT_URL.replace('@id', id))
@@ -27,7 +23,7 @@ function newsDetail() {
     `;
 }
 function newsFeed() {
-    const newsFeed = getData(NEWS_URL);
+    const newsFeeds = getData(NEWS_URL)
     const newsList = [];
     newsList.push('<ul>');
     for (let i = 0; i < newsFeeds.length; i++) {
