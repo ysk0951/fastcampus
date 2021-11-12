@@ -1,3 +1,4 @@
+let parcelRequire;
 const container = document.getElementById('root');
 const ajax = new XMLHttpRequest();
 const NEWS_URL = 'https://api.hnpwa.com/v0/news/1.json';
@@ -7,8 +8,8 @@ const store = {
   feeds: [],
 };
 
-function getData(url) {
-  ajax.open('GET', url, false);
+async function getData(url) {
+  await ajax.open('GET', url, false);
   ajax.send();
 
   return JSON.parse(ajax.response);
